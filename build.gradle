@@ -1,15 +1,16 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
     }
 
     dependencies {
         classpath libs.gradle
+        classpath "org.bouncycastle:bcprov-jdk18on:1.78.1"
     }
 }
 
 plugins {
-    id 'org.sonarqube' version '7.2.2.6593'
 }
 
 allprojects {
@@ -19,13 +20,3 @@ allprojects {
     }
 }
 
-sonarqube {
-    properties {
-        // Root project information
-        property 'sonar.projectKey', 'org.adaway'
-        property 'sonar.organization', 'adaway'
-        property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', libs.versions.appName.get()
-        property 'sonar.host.url', 'https://sonarcloud.io'
-    }
-}
